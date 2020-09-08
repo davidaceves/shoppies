@@ -11,10 +11,6 @@ function App() {
         <h1>The Shoppies</h1>
       </header>
       <SearchBar />
-      <div className="content">
-        <Results />
-        <Nominations />
-      </div>
     </div>
   );
 }

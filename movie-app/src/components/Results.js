@@ -2,15 +2,29 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 
 function Results(props) {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    setMovies(props.movies);
-  }, [props.movies]);
+    if (movies.length > 5) {
+      movies.shift();
+    }
+    setMovies(movies.concat(props.movieTitle));
+  }, [props.movieTitle]);
+
+  const clearMovies = () => {
+    setMovies([]);
+  };
 
   return (
     <div className="results">
-      {movies ? console.log(movies.Title) : <p>"Loading"</p>}
+      {movies ? (
+        movies.map((movie) => {
+          return <p>{movie}</p>;
+        })
+      ) : (
+        <p>"Loading"</p>
+      )}
+      <button onClick={clearMovies}>Clear</button>
     </div>
   );
 }
