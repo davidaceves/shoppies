@@ -3,7 +3,6 @@ import axios from "axios";
 
 import "../App.css";
 import Results from "./Results";
-import Nominations from "./Nominations";
 
 function SearchBar() {
   const [input, setInput] = useState();
@@ -33,8 +32,7 @@ function SearchBar() {
         <button onClick={movieSearch}>Search</button>
       </div>
       <div class="content">
-        <Results movieTitle={movies.Title} />
-        <Nominations />
+        <Results movie={movies} />
       </div>
     </>
   );

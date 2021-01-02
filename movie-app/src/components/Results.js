@@ -8,8 +8,8 @@ function Results(props) {
     if (movies.length > 5) {
       movies.shift();
     }
-    setMovies(movies.concat(props.movieTitle));
-  }, [props.movieTitle]);
+    setMovies(movies.concat(props.movie));
+  }, [props.movie]);
 
   const clearMovies = () => {
     setMovies([]);
@@ -19,7 +19,13 @@ function Results(props) {
     <div className="results">
       {movies ? (
         movies.map((movie) => {
-          return <p>{movie}</p>;
+          return (
+            <div>
+              <h3>{movie.Title}</h3>
+              <p>{movie.Year}</p>
+              <img src={movie.Poster} alt="Poster" />
+            </div>
+          );
         })
       ) : (
         <p>"Loading"</p>
