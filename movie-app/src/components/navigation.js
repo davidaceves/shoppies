@@ -4,17 +4,8 @@ import "../App.css";
 import styled from "styled-components";
 
 const Container = styled.div`
-  ${"" /* max-width: 1000px; */}
-  ${"" /* margin: 0 auto; */}
-  padding: 50px;
-`;
-
-const NavUL = styled.ul`
-  display: flex;
-  border: 1px solid black;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
 `;
 
 const NavA = styled.a`
@@ -23,10 +14,26 @@ const NavA = styled.a`
   letter-spacing: 2px;
   text-decoration: none;
   background: rgba(0, 0, 0, 0.2);
-  padding: 20px, 5px;
+  padding: 20px 5px;
   display: inline-block;
   width: 100%;
   text-align: center;
+`;
+
+const NavUL = styled.ul`
+  display: flex;
+  border: 1px solid black;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  ${NavA}:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+`;
+
+const NavLI = styled.li`
+  flex: 1;
 `;
 
 function Navigation() {
@@ -34,12 +41,12 @@ function Navigation() {
     <>
       <Container>
         <NavUL>
-          <li>
+          <NavLI>
             <NavA href="#">Home</NavA>
-          </li>
-          <li>
+          </NavLI>
+          <NavLI>
             <NavA href="#">Nominations</NavA>
-          </li>
+          </NavLI>
         </NavUL>
       </Container>
     </>
