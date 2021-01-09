@@ -5,17 +5,24 @@ import "../App.css";
 import Results from "./Results";
 
 function SearchBar() {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState({});
   const [movies, setMovies] = useState([]);
 
   const movieSearch = () => {
     axios
-      .post(`http://www.omdbapi.com/?i=tt3896198&apikey=619b8e93&t=${input}`)
+      .post(
+        `http://www.omdbapi.com/?i=tt3896198&apikey=619b8e93&t=${input.search}`
+      )
       .then((res) => setMovies(res.data));
   };
 
-  const inputHandler = (event) => {
-    setInput(event.target.value);
+  const inputHandler = (e) => {
+    setInput({
+      ...input,
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
+
+    console.log(input);
   };
 
   return (
@@ -26,7 +33,6 @@ function SearchBar() {
           type="text"
           name="search"
           placeholder="Enter a movie title..."
-          value={input}
           onChange={inputHandler}
         ></input>
         <button onClick={movieSearch}>Search</button>
