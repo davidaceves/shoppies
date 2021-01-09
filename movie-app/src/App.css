@@ -5,13 +5,14 @@
 }
 
 body {
+  /* background-image: linear-gradient(260deg, #ff4b4b 0%, #b16d6d94 100%); */
   background-color: rgb(51, 51, 51);
 }
 
 .App {
   text-align: center;
   margin: 0;
-  font-family: sans-serif;
+  font-family: Oswald;
   box-sizing: border-box;
 }
 
@@ -40,16 +41,30 @@ body {
   justify-content: center;
 }
 
+.searchBar input {
+  padding: 8px;
+}
+
 .searchBar p {
   padding-right: 1%;
+  font-weight: bold;
 }
 
 .results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   color: white;
-  margin: 1%;
-  width: 25%;
-  height: 300px;
+  width: 50%;
+  height: 100%;
   border: 1px solid grey;
+}
+
+.movie {
+  border: 1px solid black;
+  background-color: rgb(102, 102, 104);
+  padding: 5%;
+  margin: 5%;
 }
 
 .nominations {
@@ -60,6 +75,19 @@ body {
 }
 
 button {
+  font-weight: bold;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  transition-duration: 0.4s;
+  width: 100px;
+  padding: 5px;
   cursor: pointer;
   margin: 2%;
+}
+
+button:hover {
+  /* box-shadow: 0 0 0.25em 0.25em rgb(90, 90, 90); */
+  background-color: rgb(94, 94, 94);
+  color: white;
 }
