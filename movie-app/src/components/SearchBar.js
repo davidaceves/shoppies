@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import "../App.css";
@@ -11,7 +11,7 @@ function SearchBar() {
   const movieSearch = () => {
     axios
       .post(
-        `http://www.omdbapi.com/?i=tt3896198&apikey=619b8e93&t=${input.search}`
+        `http://www.omdbapi.com/?i=tt3896198&apikey=619b8e93&s=${input.search}`
       )
       .then((res) => setMovies(res.data));
   };
@@ -21,9 +21,13 @@ function SearchBar() {
       ...input,
       [e.currentTarget.name]: e.currentTarget.value,
     });
-
-    console.log(input);
   };
+
+  useEffect(() => {
+    if (input.search !== undefined) {
+      movieSearch();
+    }
+  }, [input.search]);
 
   return (
     <>
