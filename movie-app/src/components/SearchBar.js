@@ -23,11 +23,11 @@ function SearchBar() {
     });
   };
 
-  useEffect(() => {
-    if (input.search !== undefined) {
-      movieSearch();
-    }
-  }, [input.search]);
+  // useEffect(() => {
+  //   if (input.search !== undefined) {
+  //     movieSearch();
+  //   }
+  // }, [input.search]);
 
   return (
     <>
